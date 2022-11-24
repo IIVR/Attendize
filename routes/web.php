@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventAccessCodesController;
 use App\Http\Controllers\EventAttendeesController;
 use App\Http\Controllers\EventCheckInController;
