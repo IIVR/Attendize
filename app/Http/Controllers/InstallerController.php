@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Log;
-use PhpSpec\Exception\Example\ExampleException;
 
 class InstallerController extends Controller
 {
@@ -82,7 +81,7 @@ class InstallerController extends Controller
     /**
      * Attempts to install the system.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\RedirectResponse|array
      */
     public function postInstaller(Request $request)
@@ -116,9 +115,9 @@ class InstallerController extends Controller
         if (! $connectionDetailsValid) {
             if ($request->get('test') === 'db') {
                 return [
-                    'status'  => 'error',
+                    'status' => 'error',
                     'message' => trans('Installer.connection_failure'),
-                    'test'    => 1,
+                    'test' => 1,
                 ];
             }
 
@@ -142,16 +141,16 @@ class InstallerController extends Controller
             $db_valid = self::testDatabase($database);
             if ($db_valid) {
                 return [
-                    'status'  => 'success',
+                    'status' => 'success',
                     'message' => trans('Installer.connection_success'),
-                    'test'    => 1,
+                    'test' => 1,
                 ];
             }
 
             return response()->json([
-                'status'  => 'error',
+                'status' => 'error',
                 'message' => trans('Installer.connection_failure'),
-                'test'    => 1,
+                'test' => 1,
             ]);
         }
 
@@ -166,7 +165,7 @@ class InstallerController extends Controller
 
         $config_string = file_get_contents(base_path().'/.env.example');
         $config_temp = explode("\n", $config_string);
-        foreach ($config_temp as $key=>$row) {
+        foreach ($config_temp as $key => $row) {
             $config_temp[$key] = explode('=', $row, 2);
         }
         $config = [
@@ -191,7 +190,7 @@ class InstallerController extends Controller
 
         foreach ($config as $key => $val) {
             $set = false;
-            foreach ($config_temp as $rownum=>$row) {
+            foreach ($config_temp as $rownum => $row) {
                 if ($row[0] == $key) {
                     $config_temp[$rownum][1] = $val;
                     $set = true;

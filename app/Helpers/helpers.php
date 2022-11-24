@@ -5,7 +5,7 @@ if (! function_exists('money')) {
      * Format a given amount to the given currency.
      *
      * @param $amount
-     * @param \App\Models\Currency $currency
+     * @param  \App\Models\Currency  $currency
      * @return string
      */
     function money($amount, App\Models\Currency $currency)

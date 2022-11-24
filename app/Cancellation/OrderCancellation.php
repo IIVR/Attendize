@@ -8,17 +8,19 @@ use Superbalist\Money\Money;
 
 class OrderCancellation
 {
-    /** @var Order $order */
+    /** @var Order */
     private $order;
-    /** @var array $attendees */
+
+    /** @var array */
     private $attendees;
-    /** @var OrderRefund $orderRefund */
+
+    /** @var OrderRefund */
     private $orderRefund;
 
     /**
      * OrderCancellation constructor.
      *
-     * @param Order $order
+     * @param  Order  $order
      * @param $attendees
      */
     public function __construct(Order $order, $attendees)
@@ -30,7 +32,7 @@ class OrderCancellation
     /**
      * Create a new instance to be used statically.
      *
-     * @param Order $order
+     * @param  Order  $order
      * @param $attendees
      * @return OrderCancellation
      */

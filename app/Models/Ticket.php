@@ -25,11 +25,11 @@ class Ticket extends MyBaseModel
         $format = config('attendize.default_datetime_format');
 
         return [
-            'title'              => 'required',
-            'price'              => 'required|numeric|min:0',
-            'description'        => 'nullable',
-            'start_sale_date'    => 'nullable|date_format:"'.$format.'"',
-            'end_sale_date'      => 'nullable|date_format:"'.$format.'"|after:start_sale_date',
+            'title' => 'required',
+            'price' => 'required|numeric|min:0',
+            'description' => 'nullable',
+            'start_sale_date' => 'nullable|date_format:"'.$format.'"',
+            'end_sale_date' => 'nullable|date_format:"'.$format.'"|after:start_sale_date',
             'quantity_available' => 'nullable|integer|min:'.($this->quantity_sold + $this->quantity_reserved),
         ];
     }
@@ -40,10 +40,11 @@ class Ticket extends MyBaseModel
      * @var array
      */
     public $messages = [
-        'price.numeric'              => 'The price must be a valid number (e.g 12.50)',
-        'title.required'             => 'You must at least give a title for your ticket. (e.g Early Bird)',
+        'price.numeric' => 'The price must be a valid number (e.g 12.50)',
+        'title.required' => 'You must at least give a title for your ticket. (e.g Early Bird)',
         'quantity_available.integer' => 'Please ensure the quantity available is a number.',
     ];
+
     protected $perPage = 10;
 
     /**
@@ -58,6 +59,7 @@ class Ticket extends MyBaseModel
 
     /**
      * The order associated with the ticket.
+     *
      * @return BelongsToMany
      */
     public function orders()
@@ -103,7 +105,7 @@ class Ticket extends MyBaseModel
     /**
      * Parse start_sale_date to a Carbon instance.
      *
-     * @param string $date DateTime
+     * @param  string  $date DateTime
      */
     public function setStartSaleDateAttribute($date)
     {
@@ -120,7 +122,7 @@ class Ticket extends MyBaseModel
     /**
      * Parse end_sale_date to a Carbon instance.
      *
-     * @param string|null $date DateTime
+     * @param  string|null  $date DateTime
      */
     public function setEndSaleDateAttribute($date)
     {
@@ -275,6 +277,7 @@ class Ticket extends MyBaseModel
      * Ticket revenue is calculated as:.
      *
      * Sales Volume + Organiser Booking Fees - Partial Refunds
+     *
      * @return Money
      */
     public function getTicketRevenueAmount()

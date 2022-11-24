@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Organiser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Image;
 
 class OrganiserController extends MyBaseController
 {
@@ -32,9 +31,9 @@ class OrganiserController extends MyBaseController
     /**
      * Create the organiser.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return \Illuminate\Http\JsonResponse
+     *
      * @throws \Symfony\Component\HttpFoundation\File\Exception\FileException
      */
     public function postCreateOrganiser(Request $request)
@@ -48,7 +47,7 @@ class OrganiserController extends MyBaseController
 
         if (! $organiser->validate($request->all())) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $organiser->errors(),
             ]);
         }
@@ -74,11 +73,11 @@ class OrganiserController extends MyBaseController
         session()->flash('message', trans('Controllers.successfully_created_organiser'));
 
         return response()->json([
-            'status'      => 'success',
-            'message'     => trans('Controllers.refreshing'),
+            'status' => 'success',
+            'message' => trans('Controllers.refreshing'),
             'redirectUrl' => route('showOrganiserEvents', [
                 'organiser_id' => $organiser->id,
-                'first_run'    => 1,
+                'first_run' => 1,
             ]),
         ]);
     }

@@ -2,7 +2,6 @@
 
 use App\Models\Message;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 
 class FixMessagesTable extends Migration
 {

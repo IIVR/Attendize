@@ -11,21 +11,22 @@ use Str;
 class Organiser extends MyBaseModel implements AuthenticatableContract
 {
     use Authenticatable;
+
     /**
      * The validation rules for the model.
      *
      * @var array
      */
     protected $rules = [
-        'name'           => ['required'],
-        'email'          => ['required', 'email'],
+        'name' => ['required'],
+        'email' => ['required', 'email'],
         'organiser_logo' => ['nullable', 'mimes:jpeg,jpg,png', 'max:10000'],
     ];
 
     protected $extra_rules = [
-        'tax_name'        => ['nullable', 'max:15'],
-        'tax_value'       => ['nullable', 'numeric'],
-        'tax_id'          => ['nullable', 'max:100'],
+        'tax_name' => ['nullable', 'max:15'],
+        'tax_value' => ['nullable', 'numeric'],
+        'tax_id' => ['nullable', 'max:100'],
     ];
 
     /**
@@ -34,9 +35,9 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
      * @var array
      */
     protected $attributes = [
-        'tax_name'        => 'Tax Name',
-        'tax_value'       => 'Tax Rate',
-        'tax_id'          => 'Tax ID',
+        'tax_name' => 'Tax Name',
+        'tax_value' => 'Tax Rate',
+        'tax_id' => 'Tax ID',
     ];
 
     /**
@@ -45,9 +46,9 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
      * @var array
      */
     protected $messages = [
-        'name.required'        => 'You must at least give a name for the event organiser.',
-        'organiser_logo.max'   => 'Please upload an image smaller than 10Mb',
-        'organiser_logo.size'  => 'Please upload an image smaller than 10Mb',
+        'name.required' => 'You must at least give a name for the event organiser.',
+        'organiser_logo.max' => 'Please upload an image smaller than 10Mb',
+        'organiser_logo.size' => 'Please upload an image smaller than 10Mb',
         'organiser_logo.mimes' => 'Please select a valid image type (jpeg, jpg, png)',
     ];
 
@@ -113,7 +114,7 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
     public function getOrganiserUrlAttribute()
     {
         return route('showOrganiserHome', [
-            'organiser_id'   => $this->id,
+            'organiser_id' => $this->id,
             'organiser_slug' => Str::slug($this->oraganiser_name),
         ]);
     }
@@ -143,7 +144,7 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
     /**
      * Set a new Logo for the Organiser.
      *
-     * @param \Illuminate\Http\UploadedFile $file
+     * @param  \Illuminate\Http\UploadedFile  $file
      */
     public function setLogo(UploadedFile $file)
     {

@@ -4,18 +4,18 @@
 *************************************************************************/
 
 return [
-  //============================== New strings to translate ==============================//
-  // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\Public\\ViewOrganiser\\Partials\\OrganiserSocialSection.blade.php
-  'pinterest' => 'Pinterest',
-  //==================================== Translations ====================================//
-  'email' => 'E-mail',
-  'facebook' => 'Facebook',
-  'g+' => 'Google+',
-  'linkedin' => 'LinkedIn',
-  'share_buttons_to_show' => 'Deel knoppen voor weergave',
-  'social_settings' => 'Socialmedia instellingen',
-  'social_share_text' => 'Socialmedia tekst bij delen',
-  'social_share_text_help' => 'Deze tekst wordt standaard weergegeven als een gebruiker uw link op social media deelt.',
-  'twitter' => 'Twitter',
-  'whatsapp' => 'WhatsApp',
+    //============================== New strings to translate ==============================//
+    // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\Public\\ViewOrganiser\\Partials\\OrganiserSocialSection.blade.php
+    'pinterest' => 'Pinterest',
+    //==================================== Translations ====================================//
+    'email' => 'E-mail',
+    'facebook' => 'Facebook',
+    'g+' => 'Google+',
+    'linkedin' => 'LinkedIn',
+    'share_buttons_to_show' => 'Deel knoppen voor weergave',
+    'social_settings' => 'Socialmedia instellingen',
+    'social_share_text' => 'Socialmedia tekst bij delen',
+    'social_share_text_help' => 'Deze tekst wordt standaard weergegeven als een gebruiker uw link op social media deelt.',
+    'twitter' => 'Twitter',
+    'whatsapp' => 'WhatsApp',
 ];

@@ -2,7 +2,7 @@
 
 if (! function_exists('sanitise')) {
     /**
-     * @param string $input
+     * @param  string  $input
      * @return string
      */
     function sanitise($input)
@@ -18,7 +18,7 @@ if (! function_exists('sanitise')) {
     }
 
     /**
-     * @param string $input
+     * @param  string  $input
      * @return string
      */
     function clean_whitespace($input)

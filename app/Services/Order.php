@@ -38,6 +38,7 @@ class Order
 
     /**
      * Order constructor.
+     *
      * @param $orderTotal
      * @param $totalBookingFee
      * @param $event
@@ -66,7 +67,7 @@ class Order
     }
 
     /**
-     * @param bool $currencyFormatted
+     * @param  bool  $currencyFormatted
      * @return float|string
      */
     public function getOrderTotalWithBookingFee($currencyFormatted = false)
@@ -79,7 +80,7 @@ class Order
     }
 
     /**
-     * @param bool $currencyFormatted
+     * @param  bool  $currencyFormatted
      * @return float|string
      */
     public function getTaxAmount($currencyFormatted = false)
@@ -92,7 +93,7 @@ class Order
     }
 
     /**
-     * @param bool $currencyFormatted
+     * @param  bool  $currencyFormatted
      * @return float|string
      */
     public function getGrandTotal($currencyFormatted = false)

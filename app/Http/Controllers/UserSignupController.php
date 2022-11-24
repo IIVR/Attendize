@@ -34,17 +34,16 @@ class UserSignupController extends Controller
     /**
      * Creates an account.
      *
-     * @param Request $request
-     *
+     * @param  Request  $request
      * @return Redirect
      */
     public function postSignup(Request $request)
     {
         $is_attendize = Utils::isAttendize();
         $this->validate($request, [
-            'email'        => 'required|email|unique:users',
-            'password'     => 'required|min:8|confirmed',
-            'first_name'   => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed',
+            'first_name' => 'required',
             'terms_agreed' => $is_attendize ? 'required' : '',
         ]);
 

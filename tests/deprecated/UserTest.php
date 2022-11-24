@@ -1,10 +1,5 @@
 <?php
 
-use App\Attendize\Utils;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
 class UserTest extends TestCase
 {
     public function test_edit_user_is_successful()

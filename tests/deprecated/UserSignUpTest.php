@@ -1,9 +1,6 @@
 <?php
 
 use App\Attendize\Utils;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class UserSignUpTest extends TestCase
 {

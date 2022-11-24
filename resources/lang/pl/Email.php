@@ -4,16 +4,16 @@
 *************************************************************************/
 
 return [
-  //==================================== Translations ====================================//
-  'attendize_register' => 'Dziękujemy za rejestrację w Attendize',
-  'invite_user' => ':name dodał cię do konta :app.',
-  'message_regarding_event' => 'Wiadomość w związku z: :event',
-  'organiser_copy' => '[Kopia Organizatora]',
-  'refund_from_name' => 'Otrzymaleś refundację od :name',
-  'your_ticket_cancelled' => 'Twój bilet został anulowany',
-  'your_ticket_for_event' => 'Twój bilet na wydarzenie :event',
-  //================================== Obsolete strings ==================================//
-  'LLH:obsolete' => [
+    //==================================== Translations ====================================//
+    'attendize_register' => 'Dziękujemy za rejestrację w Attendize',
+    'invite_user' => ':name dodał cię do konta :app.',
+    'message_regarding_event' => 'Wiadomość w związku z: :event',
+    'organiser_copy' => '[Kopia Organizatora]',
+    'refund_from_name' => 'Otrzymaleś refundację od :name',
+    'your_ticket_cancelled' => 'Twój bilet został anulowany',
+    'your_ticket_for_event' => 'Twój bilet na wydarzenie :event',
+    //================================== Obsolete strings ==================================//
+    'LLH:obsolete' => [
 
-  ],
+    ],
 ];

@@ -18,7 +18,6 @@ class UserLoginController extends Controller
      * Shows login form.
      *
      * @param  Request  $request
-     *
      * @return mixed
      */
     public function showLogin(Request $request)
@@ -29,7 +28,7 @@ class UserLoginController extends Controller
          */
         if ($request->ajax()) {
             return response()->json([
-                'status'      => 'success',
+                'status' => 'success',
                 'redirectUrl' => route('login'),
             ]);
         }
@@ -41,7 +40,6 @@ class UserLoginController extends Controller
      * Handles the login request.
      *
      * @param  Request  $request
-     *
      * @return mixed
      */
     public function postLogin(Request $request)

@@ -12,7 +12,6 @@ use App\Models\Ticket;
 use Auth;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\OnEachRow;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Row;
 
@@ -28,8 +27,7 @@ class AttendeesImport implements OnEachRow, WithHeadingRow
     }
 
     /**
-     * @param array $row
-     *
+     * @param  array  $row
      * @return \Illuminate\Database\Eloquent\Model|null
      */
     public function onRow(Row $row)

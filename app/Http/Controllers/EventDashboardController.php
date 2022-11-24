@@ -14,7 +14,7 @@ class EventDashboardController extends MyBaseController
     /**
      * Show the event dashboard.
      *
-     * @param bool|false $event_id
+     * @param  bool|false  $event_id
      * @return \Illuminate\View\View
      */
     public function showDashboard($event_id = false)
@@ -66,8 +66,8 @@ class EventDashboardController extends MyBaseController
             }
 
             $result[] = [
-                'date'         => $date->format('Y-m-d'),
-                'views'        => $views,
+                'date' => $date->format('Y-m-d'),
+                'views' => $views,
                 'unique_views' => $unique_views,
                 'sales_volume' => $sales_volume + $organiser_fees_volume,
                 'tickets_sold' => $tickets_sold,
@@ -82,8 +82,8 @@ class EventDashboardController extends MyBaseController
         }
 
         $data = [
-            'event'      => $event,
-            'chartData'  => json_encode($result),
+            'event' => $event,
+            'chartData' => json_encode($result),
             'ticketData' => json_encode($tickets_data),
         ];
 
@@ -92,7 +92,8 @@ class EventDashboardController extends MyBaseController
 
     /**
      * Redirect to event dashboard.
-     * @param  int|false $event_id
+     *
+     * @param  int|false  $event_id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function redirectToDashboard($event_id = false)

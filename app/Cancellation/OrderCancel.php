@@ -4,8 +4,6 @@ namespace App\Cancellation;
 
 use App\Models\Attendee;
 use App\Models\EventStats;
-use Log;
-use Services\PaymentGateway\Factory;
 use Superbalist\Money\Money;
 
 class OrderCancel extends OrderRefundAbstract

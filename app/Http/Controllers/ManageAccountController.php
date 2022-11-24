@@ -33,13 +33,13 @@ class ManageAccountController extends MyBaseController
     public function showEditAccount(Request $request)
     {
         $data = [
-            'account'                    => Account::find(Auth::user()->account_id),
-            'timezones'                  => Timezone::pluck('location', 'id'),
-            'currencies'                 => Currency::pluck('title', 'id'),
-            'payment_gateways'           => PaymentGateway::getAllWithDefaultSet(),
+            'account' => Account::find(Auth::user()->account_id),
+            'timezones' => Timezone::pluck('location', 'id'),
+            'currencies' => Currency::pluck('title', 'id'),
+            'payment_gateways' => PaymentGateway::getAllWithDefaultSet(),
             'default_payment_gateway_id' => PaymentGateway::getDefaultPaymentGatewayId(),
-            'account_payment_gateways'   => AccountPaymentGateway::scope()->get(),
-            'version_info'               => $this->getVersionInfo(),
+            'account_payment_gateways' => AccountPaymentGateway::scope()->get(),
+            'version_info' => $this->getVersionInfo(),
         ];
 
         return view('ManageAccount.Modals.EditAccount', $data);
@@ -62,8 +62,8 @@ class ManageAccountController extends MyBaseController
 
         if ($installedVersion && $latestVersion) {
             return [
-                'latest'      => $latestVersion,
-                'installed'   => $installedVersion,
+                'latest' => $latestVersion,
+                'installed' => $installedVersion,
                 'is_outdated' => version_compare($installedVersion, $latestVersion) === -1,
             ];
         }
@@ -83,7 +83,7 @@ class ManageAccountController extends MyBaseController
 
         if (! $account->validate($request->all())) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $account->errors(),
             ]);
         }
@@ -96,8 +96,8 @@ class ManageAccountController extends MyBaseController
         $account->save();
 
         return response()->json([
-            'status'  => 'success',
-            'id'      => $account->id,
+            'status' => 'success',
+            'id' => $account->id,
             'message' => trans('Controllers.account_successfully_updated'),
         ]);
     }
@@ -137,7 +137,7 @@ class ManageAccountController extends MyBaseController
         $account_payment_gateway = AccountPaymentGateway::firstOrNew(
             [
                 'payment_gateway_id' => $gateway_id,
-                'account_id'         => $account->id,
+                'account_id' => $account->id,
             ]);
 
         $account_payment_gateway->config = $config;
@@ -149,8 +149,8 @@ class ManageAccountController extends MyBaseController
         $account->save();
 
         return response()->json([
-            'status'  => 'success',
-            'id'      => $account_payment_gateway->id,
+            'status' => 'success',
+            'id' => $account_payment_gateway->id,
             'message' => trans('Controllers.payment_information_successfully_updated'),
         ]);
     }
@@ -167,16 +167,16 @@ class ManageAccountController extends MyBaseController
         ];
 
         $messages = [
-            'email.email'    => trans('Controllers.error.email.email'),
+            'email.email' => trans('Controllers.error.email.email'),
             'email.required' => trans('Controllers.error.email.required'),
-            'email.unique'   => trans('Controllers.error.email.unique'),
+            'email.unique' => trans('Controllers.error.email.unique'),
         ];
 
         $validation = Validator::make($request->all(), $rules, $messages);
 
         if ($validation->fails()) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $validation->messages()->toArray(),
             ]);
         }
@@ -192,21 +192,21 @@ class ManageAccountController extends MyBaseController
         $user->save();
 
         $data = [
-            'user'          => $user,
+            'user' => $user,
             'temp_password' => $temp_password,
-            'inviter'       => Auth::user(),
+            'inviter' => Auth::user(),
         ];
 
         Mail::send('Emails.inviteUser', $data, static function (Mailable $message) use ($data) {
             $message->to($data['user']->email)
                 ->subject(trans('Email.invite_user', [
                     'name' => $data['inviter']->first_name.' '.$data['inviter']->last_name,
-                    'app'  => config('attendize.app_name'),
+                    'app' => config('attendize.app_name'),
                 ]));
         });
 
         return response()->json([
-            'status'  => 'success',
+            'status' => 'success',
             'message' => trans('Controllers.success_name_has_received_instruction', ['name' => $user->email]),
         ]);
     }

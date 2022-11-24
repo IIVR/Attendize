@@ -13,7 +13,6 @@ class PaymentUtils
      * The inverse of isFree function.
      *
      * @param  int  $amount  Amount of money to check
-     *
      * @return bool true if requires payment, false if not
      */
     public static function requiresPayment($amount)
@@ -25,7 +24,6 @@ class PaymentUtils
      * Verify if a certain amount is free or not.
      *
      * @param  int  $amount  Amount of money to check
-     *
      * @return bool true if is free, false if not
      */
     public static function isFree($amount)

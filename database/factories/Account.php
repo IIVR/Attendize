@@ -34,7 +34,7 @@ $factory->define(Account::class, function (Generator $faker) {
         'city' => $faker->city,
         'state' => $faker->stateAbbr,
         'postal_code' => $faker->postcode,
-//        'country_id'             => factory(App\Models\Country::class)->create()->id,
+        //        'country_id'             => factory(App\Models\Country::class)->create()->id,
         'email_footer' => 'Email footer text',
         'is_active' => false,
         'is_banned' => false,

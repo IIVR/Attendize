@@ -82,6 +82,7 @@ class Utils
      * Check if a user has admin access to events etc.
      *
      * @todo - This is a temp fix until user roles etc. are implemented
+     *
      * @param $object
      * @return bool
      */

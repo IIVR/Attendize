@@ -11,7 +11,7 @@ abstract class Transformer
     abstract public function transform($item);
 
     /**
-     * @param array $items
+     * @param  array  $items
      * @return array
      */
     public function transformCollection(array $items)

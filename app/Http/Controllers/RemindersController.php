@@ -73,8 +73,7 @@ class RemindersController extends Controller
     /**
      * Display the password reset view for the given token.
      *
-     * @param string $token
-     *
+     * @param  string  $token
      * @return Response
      */
     public function getReset($token = null)
@@ -94,8 +93,8 @@ class RemindersController extends Controller
     public function postReset(Request $request)
     {
         $this->validate($request, [
-            'token'    => 'required',
-            'email'    => 'required',
+            'token' => 'required',
+            'email' => 'required',
             'password' => 'required|confirmed',
         ]);
 

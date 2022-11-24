@@ -4,18 +4,18 @@
 *************************************************************************/
 
 return [
-  //============================== New strings to translate ==============================//
-  // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\Public\\ViewOrganiser\\Partials\\OrganiserSocialSection.blade.php
-  'pinterest' => 'Pinterest',
-  //==================================== Translations ====================================//
-  'email' => 'Email',
-  'facebook' => 'Facebook',
-  'g+' => 'Google+',
-  'linkedin' => 'LinkedIn',
-  'share_buttons_to_show' => 'Przyciski Udostępniania do Wyświetlenia',
-  'social_settings' => 'Ustawienia Społeczności',
-  'social_share_text' => 'Tekst Udostępnienia',
-  'social_share_text_help' => 'To jest tekst, który zostanie dodany do wiadomości w trakcie udostępniania wydarzenia.',
-  'twitter' => 'Twitter',
-  'whatsapp' => 'WhatsApp',
+    //============================== New strings to translate ==============================//
+    // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\Public\\ViewOrganiser\\Partials\\OrganiserSocialSection.blade.php
+    'pinterest' => 'Pinterest',
+    //==================================== Translations ====================================//
+    'email' => 'Email',
+    'facebook' => 'Facebook',
+    'g+' => 'Google+',
+    'linkedin' => 'LinkedIn',
+    'share_buttons_to_show' => 'Przyciski Udostępniania do Wyświetlenia',
+    'social_settings' => 'Ustawienia Społeczności',
+    'social_share_text' => 'Tekst Udostępnienia',
+    'social_share_text_help' => 'To jest tekst, który zostanie dodany do wiadomości w trakcie udostępniania wydarzenia.',
+    'twitter' => 'Twitter',
+    'whatsapp' => 'WhatsApp',
 ];

@@ -18,12 +18,14 @@ class MyBaseModel extends \Illuminate\Database\Eloquent\Model
      * @var bool
      */
     public $timestamps = true;
+
     /**
      * Indicates whether the model uses soft deletes.
      *
      * @var bool
      */
     protected $softDelete = true;
+
     /**
      * The validation rules of the model.
      *
@@ -51,7 +53,6 @@ class MyBaseModel extends \Illuminate\Database\Eloquent\Model
      * @param  int|bool  $account_id
      * @param  int|bool  $user_id
      * @param  bool  $ignore_user_id
-     *
      * @return \className
      */
     public static function createNew($account_id = false, $user_id = false, $ignore_user_id = false)
@@ -82,7 +83,6 @@ class MyBaseModel extends \Illuminate\Database\Eloquent\Model
      * Validate the model instance.
      *
      * @param $data
-     *
      * @return bool
      */
     public function validate($data)
@@ -104,7 +104,6 @@ class MyBaseModel extends \Illuminate\Database\Eloquent\Model
      * Gets the validation error messages.
      *
      * @param  bool  $returnArray
-     *
      * @return mixed
      */
     public function errors($returnArray = true)
@@ -115,9 +114,8 @@ class MyBaseModel extends \Illuminate\Database\Eloquent\Model
     /**
      * Get a formatted date.
      *
-     * @param        $field
+     * @param    $field
      * @param  bool|null|string  $format
-     *
      * @return bool|null|string
      */
     public function getFormattedDate($field, $format = false)

@@ -13,7 +13,8 @@ class OrderCompletedEvent extends Event
 
     /**
      * OrderCompletedEvent constructor.
-     * @param Order $order
+     *
+     * @param  Order  $order
      */
     public function __construct(Order $order)
     {

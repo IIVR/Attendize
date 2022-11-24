@@ -1,10 +1,5 @@
 <?php
 
-use App\Models\Event;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
 class EventAttendeesTest extends TestCase
 {
     public function test_event_attendees_are_displayed()

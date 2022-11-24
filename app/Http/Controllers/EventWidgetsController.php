@@ -14,7 +14,7 @@ class EventWidgetsController extends MyBaseController
     /**
      * Show the event widgets page.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $event_id
      * @return mixed
      */

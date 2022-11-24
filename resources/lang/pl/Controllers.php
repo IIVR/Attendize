@@ -7,14 +7,14 @@ return [
     //============================== New strings to translate ==============================//
     // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\ManageOrganiser\\Events.blade.php
     'sort' => [
-            'event_title' => 'Nazwa Wydarzenia',
-            'start_date' => 'Data Rozpoczęcia',
-            'created_at' => 'Data Utworzenia',
-            'quantity_sold' => 'Ilość Sprzedaży',
-            'sales_volume' => 'Sprzedaż',
-            'sort_order' => 'Własna Kolejność',
-            'title' => 'Nazwa Biletu',
-        ],
+        'event_title' => 'Nazwa Wydarzenia',
+        'start_date' => 'Data Rozpoczęcia',
+        'created_at' => 'Data Utworzenia',
+        'quantity_sold' => 'Ilość Sprzedaży',
+        'sales_volume' => 'Sprzedaż',
+        'sort_order' => 'Własna Kolejność',
+        'title' => 'Nazwa Biletu',
+    ],
     // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\ManageOrganiser\\Events.blade.php
     //==================================== Translations ====================================//
     'account_successfully_updated' => 'Konto Zaktualizowane Poprawnie',
@@ -30,27 +30,27 @@ return [
     'confirmation_malformed' => 'Kod potwierdzający jest niewłaściwy lub nie istnieje.',
     'confirmation_successful' => 'Sukces! Twój adres email został potwierdzony. Możesz się zalogować!',
     'error' => [
-            'email' => [
-                    'email' => 'Proszę wprowadź poprawny adres Email.',
-                    'required' => 'Adres Email jest wymagany.',
-                    'unique' => 'Adres Email już istnieje w naszej bazie danych.',
-                ],
-            'first_name' => [
-                    'required' => 'Proszę wprowadź swoje imię.',
-                ],
-            'last_name' => [
-                    'required' => 'Proszę wprowadź swoje nazwisko.',
-                ],
-            'page_bg_color' => [
-                    'required' => 'Proszę wprowadź kolor tła.',
-                ],
-            'page_header_bg_color' => [
-                    'required' => 'Proszę wprowadź kolor tła nagłówka.',
-                ],
-            'password' => [
-                    'passcheck' => 'Hasło jest niepoprawne.',
-                ],
+        'email' => [
+            'email' => 'Proszę wprowadź poprawny adres Email.',
+            'required' => 'Adres Email jest wymagany.',
+            'unique' => 'Adres Email już istnieje w naszej bazie danych.',
         ],
+        'first_name' => [
+            'required' => 'Proszę wprowadź swoje imię.',
+        ],
+        'last_name' => [
+            'required' => 'Proszę wprowadź swoje nazwisko.',
+        ],
+        'page_bg_color' => [
+            'required' => 'Proszę wprowadź kolor tła.',
+        ],
+        'page_header_bg_color' => [
+            'required' => 'Proszę wprowadź kolor tła nagłówka.',
+        ],
+        'password' => [
+            'passcheck' => 'Hasło jest niepoprawne.',
+        ],
+    ],
     'event_create_exception' => 'Ups! Pojawił sie problem przy tworzeniu wydarzenia. Spróbuj ponownie.',
     'event_page_successfully_updated' => 'Strona wydarzenia zaktualizowana poprawnie!',
     'event_successfully_updated' => 'Wydarzenie zaktualizowane poprawnie!',

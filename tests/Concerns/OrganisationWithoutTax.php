@@ -24,10 +24,15 @@ use Superbalist\Money\Money;
 trait OrganisationWithoutTax
 {
     private $account;
+
     private $paymentGateway;
+
     private $user;
+
     private $event;
+
     private $eventWithPercentageFees;
+
     private $eventWithFixedFees;
 
     public function setupOrganisationWithoutTax()

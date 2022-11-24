@@ -18,6 +18,7 @@ class LocalTestSeeder extends Seeder
 {
     /**
      * Run the seeds to allow for local database test cases.
+     *
      * @return void
      */
     public function run()
@@ -42,7 +43,7 @@ class LocalTestSeeder extends Seeder
     }
 
     /**
-     * @param string $message
+     * @param  string  $message
      */
     protected function out($message)
     {

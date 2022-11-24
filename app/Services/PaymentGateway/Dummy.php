@@ -66,7 +66,7 @@ class Dummy
     {
         $request = $this->gateway->refund([
             'transactionReference' => $order->transaction_id,
-            'amount'               => $refund_amount,
+            'amount' => $refund_amount,
             'refundApplicationFee' => $refund_application_fee,
         ]);
 

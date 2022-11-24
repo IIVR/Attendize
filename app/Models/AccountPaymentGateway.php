@@ -40,7 +40,6 @@ class AccountPaymentGateway extends MyBaseModel
 
     /**
      * @param $value
-     *
      * @return mixed
      */
     public function getConfigAttribute($value)

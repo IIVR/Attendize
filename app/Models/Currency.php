@@ -19,12 +19,14 @@ class Currency extends \Illuminate\Database\Eloquent\Model
      * @var bool
      */
     public $timestamps = false;
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'currencies';
+
     /**
      * Indicates whether the model should use soft deletes.
      *

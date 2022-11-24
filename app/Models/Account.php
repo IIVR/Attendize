@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Attendize\Utils;
-use DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Account extends MyBaseModel
@@ -17,8 +16,8 @@ class Account extends MyBaseModel
      */
     protected $rules = [
         'first_name' => ['required'],
-        'last_name'  => ['required'],
-        'email'      => ['required', 'email'],
+        'last_name' => ['required'],
+        'email' => ['required', 'email'],
     ];
 
     /**

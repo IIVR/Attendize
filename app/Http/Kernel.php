@@ -68,8 +68,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         /**** ATTENDIZE MIDDLEWARE ****/
-        'first.run'  => \App\Http\Middleware\FirstRunMiddleware::class,
-        'installed'  => \App\Http\Middleware\CheckInstalled::class,
+        'first.run' => \App\Http\Middleware\FirstRunMiddleware::class,
+        'installed' => \App\Http\Middleware\CheckInstalled::class,
 
         /**** OTHER MIDDLEWARE ****/
         'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,

@@ -32,7 +32,7 @@ class AttendeeMailer extends Mailer
     /**
      * Sends the attendees a message.
      *
-     * @param Message $message_object
+     * @param  Message  $message_object
      */
     public function sendMessageToAttendees(Message $message_object)
     {
@@ -49,11 +49,11 @@ class AttendeeMailer extends Mailer
             }
 
             $data = [
-                'attendee'        => $attendee,
-                'event'           => $event,
+                'attendee' => $attendee,
+                'event' => $event,
                 'message_content' => $message_object->message,
-                'subject'         => $message_object->subject,
-                'email_logo'      => $attendee->event->organiser->full_logo_path,
+                'subject' => $message_object->subject,
+                'email_logo' => $attendee->event->organiser->full_logo_path,
             ];
 
             Mail::send('Emails.messageReceived', $data, function ($message) use ($attendee, $data) {

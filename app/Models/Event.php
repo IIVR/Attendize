@@ -18,18 +18,19 @@ class Event extends MyBaseModel
     use SoftDeletes;
 
     protected $dates = ['start_date', 'end_date', 'on_sale_date'];
+
     /**
      * The validation error messages.
      *
      * @var array
      */
     protected $messages = [
-        'title.required'                       => 'You must at least give a title for your event.',
-        'organiser_name.required_without'      => 'Please create an organiser or select an existing organiser.',
-        'event_image.mimes'                    => 'Please ensure you are uploading an image (JPG, PNG, JPEG)',
-        'event_image.max'                      => 'Please ensure the image is not larger then 3MB',
+        'title.required' => 'You must at least give a title for your event.',
+        'organiser_name.required_without' => 'Please create an organiser or select an existing organiser.',
+        'event_image.mimes' => 'Please ensure you are uploading an image (JPG, PNG, JPEG)',
+        'event_image.max' => 'Please ensure the image is not larger then 3MB',
         'location_venue_name.required_without' => 'Please enter a venue for your event',
-        'venue_name_full.required_without'     => 'Please enter a venue for your event',
+        'venue_name_full.required_without' => 'Please enter a venue for your event',
     ];
 
     /**
@@ -42,14 +43,14 @@ class Event extends MyBaseModel
         $format = config('attendize.default_datetime_format');
 
         return [
-            'title'               => 'required',
-            'description'         => 'required',
+            'title' => 'required',
+            'description' => 'required',
             'location_venue_name' => 'required_without:venue_name_full',
-            'venue_name_full'     => 'required_without:location_venue_name',
-            'start_date'          => 'required|date_format:"'.$format.'"',
-            'end_date'            => 'required|date_format:"'.$format.'"',
-            'organiser_name'      => 'required_without:organiser_id',
-            'event_image'         => 'nullable|mimes:jpeg,jpg,png|max:3000',
+            'venue_name_full' => 'required_without:location_venue_name',
+            'start_date' => 'required|date_format:"'.$format.'"',
+            'end_date' => 'required|date_format:"'.$format.'"',
+            'organiser_name' => 'required_without:organiser_id',
+            'event_image' => 'nullable|mimes:jpeg,jpg,png|max:3000',
         ];
     }
 
@@ -191,6 +192,7 @@ class Event extends MyBaseModel
 
     /**
      * Format start date from user preferences.
+     *
      * @return string Formatted date
      */
     public function startDateFormatted()
@@ -216,6 +218,7 @@ class Event extends MyBaseModel
 
     /**
      * Format end date from user preferences.
+     *
      * @return string Formatted date
      */
     public function endDateFormatted()

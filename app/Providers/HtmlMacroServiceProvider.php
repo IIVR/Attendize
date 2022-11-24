@@ -99,9 +99,9 @@ class HtmlMacroServiceProvider extends ServiceProvider
                 $sort_order = $sort_order == 'asc' ? 'desc' : 'asc';
 
                 $url_params = http_build_query([
-                        'sort_by'    => $sort_by,
-                        'sort_order' => $sort_order,
-                    ] + $url_params);
+                    'sort_by' => $sort_by,
+                    'sort_order' => $sort_order,
+                ] + $url_params);
 
                 $html = "<a href='?$url_params' class='col-sort $class' $extra>";
 

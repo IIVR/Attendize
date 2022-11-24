@@ -42,7 +42,7 @@ class EventAccessCodesController extends MyBaseController
     /**
      * Creates a ticket.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $event_id
      * @return JsonResponse
      */
@@ -84,9 +84,10 @@ class EventAccessCodesController extends MyBaseController
     }
 
     /**
-     * @param int $event_id
-     * @param int $access_code_id
+     * @param  int  $event_id
+     * @param  int  $access_code_id
      * @return JsonResponse
+     *
      * @throws \Exception
      */
     public function postDelete($event_id, $access_code_id)

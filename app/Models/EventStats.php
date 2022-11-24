@@ -20,10 +20,9 @@ class EventStats extends \Illuminate\Database\Eloquent\Model
      * @todo This shouldn't be in a view.
      * Update the amount of revenue a ticket has earned.
      *
-     * @param int   $ticket_id
-     * @param float $amount
-     * @param bool  $deduct
-     *
+     * @param  int  $ticket_id
+     * @param  float  $amount
+     * @param  bool  $deduct
      * @return bool
      */
     public function updateTicketRevenue($ticket_id, $amount, $deduct = false)
@@ -43,14 +42,13 @@ class EventStats extends \Illuminate\Database\Eloquent\Model
      * Update the amount of views a ticket has earned.
      *
      * @param $event_id
-     *
      * @return bool
      */
     public function updateViewCount($event_id)
     {
         $stats = $this->updateOrCreate([
             'event_id' => $event_id,
-            'date'     => DB::raw('CURRENT_DATE'),
+            'date' => DB::raw('CURRENT_DATE'),
         ]);
 
         $cookie_name = 'visitTrack_'.$event_id.'_'.date('dmy');
@@ -73,7 +71,7 @@ class EventStats extends \Illuminate\Database\Eloquent\Model
     {
         $stats = $this->updateOrCreate([
             'event_id' => $event_id,
-            'date'     => DB::raw('CURRENT_DATE'),
+            'date' => DB::raw('CURRENT_DATE'),
         ]);
 
         $stats->sales_volume = $stats->sales_volume + $amount;
@@ -86,14 +84,13 @@ class EventStats extends \Illuminate\Database\Eloquent\Model
      *
      * @param $event_id
      * @param $count
-     *
      * @return bool
      */
     public function updateTicketsSoldCount($event_id, $count)
     {
         $stats = $this->updateOrCreate([
             'event_id' => $event_id,
-            'date'     => DB::raw('CURRENT_DATE'),
+            'date' => DB::raw('CURRENT_DATE'),
         ]);
 
         $stats->increment('tickets_sold', $count);

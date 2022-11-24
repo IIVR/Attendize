@@ -10,8 +10,6 @@ use App\Models\Attendee;
 use App\Models\Event;
 use App\Models\Order;
 use App\Services\Order as OrderService;
-use DB;
-use Excel;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Log;
@@ -24,8 +22,8 @@ class EventOrdersController extends MyBaseController
     /**
      * Show event orders page.
      *
-     * @param Request $request
-     * @param string $event_id
+     * @param  Request  $request
+     * @param  string  $event_id
      * @return mixed
      */
     public function showOrders(Request $request, $event_id = '')
@@ -61,11 +59,11 @@ class EventOrdersController extends MyBaseController
         }
 
         $data = [
-            'orders'     => $orders,
-            'event'      => $event,
-            'sort_by'    => $sort_by,
+            'orders' => $orders,
+            'event' => $event,
+            'sort_by' => $sort_by,
             'sort_order' => $sort_order,
-            'q'          => $searchQuery ? $searchQuery : '',
+            'q' => $searchQuery ? $searchQuery : '',
         ];
 
         return view('ManageEvent.Orders', $data);
@@ -74,7 +72,7 @@ class EventOrdersController extends MyBaseController
     /**
      * Shows  'Manage Order' modal.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return mixed
      */
@@ -96,7 +94,7 @@ class EventOrdersController extends MyBaseController
     /**
      * Shows 'Edit Order' modal.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return mixed
      */
@@ -105,10 +103,10 @@ class EventOrdersController extends MyBaseController
         $order = Order::scope()->find($order_id);
 
         $data = [
-            'order'     => $order,
-            'event'     => $order->event(),
+            'order' => $order,
+            'event' => $order->event(),
             'attendees' => $order->attendees()->withoutCancelled()->get(),
-            'modal_id'  => $request->get('modal_id'),
+            'modal_id' => $request->get('modal_id'),
         ];
 
         return view('ManageEvent.Modals.EditOrder', $data);
@@ -117,7 +115,7 @@ class EventOrdersController extends MyBaseController
     /**
      * Shows 'Cancel Order' modal.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return mixed
      */
@@ -126,10 +124,10 @@ class EventOrdersController extends MyBaseController
         $order = Order::scope()->find($order_id);
 
         $data = [
-            'order'     => $order,
-            'event'     => $order->event(),
+            'order' => $order,
+            'event' => $order->event(),
             'attendees' => $order->attendees()->withoutCancelled()->get(),
-            'modal_id'  => $request->get('modal_id'),
+            'modal_id' => $request->get('modal_id'),
         ];
 
         return view('ManageEvent.Modals.CancelOrder', $data);
@@ -139,7 +137,6 @@ class EventOrdersController extends MyBaseController
      * Resend an entire order.
      *
      * @param $order_id
-     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function resendOrder($order_id)
@@ -149,7 +146,7 @@ class EventOrdersController extends MyBaseController
         $this->dispatch(new SendOrderTickets($order));
 
         return response()->json([
-            'status'      => 'success',
+            'status' => 'success',
             'redirectUrl' => '',
         ]);
     }
@@ -157,7 +154,7 @@ class EventOrdersController extends MyBaseController
     /**
      * Cancels an order.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return mixed
      */
@@ -173,7 +170,7 @@ class EventOrdersController extends MyBaseController
 
         if ($validator->fails()) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $validator->messages()->toArray(),
             ]);
         }
@@ -189,16 +186,18 @@ class EventOrdersController extends MyBaseController
         Session::flash('message', trans('Controllers.the_order_has_been_updated'));
 
         return response()->json([
-            'status'      => 'success',
+            'status' => 'success',
             'redirectUrl' => '',
         ]);
     }
 
     /**
      * Cancels attendees in an order.
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @param $order_id
      * @return \Illuminate\Http\JsonResponse
+     *
      * @throws \Exception
      */
     public function postCancelOrder(Request $request, $order_id)
@@ -211,7 +210,7 @@ class EventOrdersController extends MyBaseController
 
         if ($validator->fails()) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $validator->messages()->toArray(),
             ]);
         }
@@ -228,7 +227,7 @@ class EventOrdersController extends MyBaseController
             Log::error($e);
 
             return response()->json([
-                'status'  => 'error',
+                'status' => 'error',
                 'message' => $e->getMessage(),
             ]);
         }
@@ -246,7 +245,7 @@ class EventOrdersController extends MyBaseController
      * Exports order to popular file types.
      *
      * @param $event_id
-     * @param string $export_as Accepted: xls, xlsx, csv, pdf, html
+     * @param  string  $export_as Accepted: xls, xlsx, csv, pdf, html
      */
     public function showExportOrders($event_id, $export_as = 'xls')
     {
@@ -259,7 +258,7 @@ class EventOrdersController extends MyBaseController
     /**
      * shows 'Message Order Creator' modal.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return mixed
      */
@@ -278,7 +277,7 @@ class EventOrdersController extends MyBaseController
     /**
      * Sends message to order creator.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return mixed
      */
@@ -293,7 +292,7 @@ class EventOrdersController extends MyBaseController
 
         if ($validator->fails()) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $validator->messages()->toArray(),
             ]);
         }
@@ -301,11 +300,11 @@ class EventOrdersController extends MyBaseController
         $order = Order::scope()->findOrFail($order_id);
 
         $data = [
-            'order'           => $order,
+            'order' => $order,
             'message_content' => $request->get('message'),
-            'subject'         => $request->get('subject'),
-            'event'           => $order->event,
-            'email_logo'      => $order->event->organiser->full_logo_path,
+            'subject' => $request->get('subject'),
+            'event' => $order->event,
+            'email_logo' => $order->event->organiser->full_logo_path,
         ];
 
         Mail::send('Emails.messageReceived', $data, function ($message) use ($order, $data) {
@@ -326,7 +325,7 @@ class EventOrdersController extends MyBaseController
         }
 
         return response()->json([
-            'status'  => 'success',
+            'status' => 'success',
             'message' => trans('Controllers.message_successfully_sent'),
         ]);
     }
@@ -334,7 +333,7 @@ class EventOrdersController extends MyBaseController
     /**
      * Mark an order as payment received.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $order_id
      * @return \Illuminate\Http\JsonResponse
      */

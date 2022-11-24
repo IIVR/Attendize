@@ -9,7 +9,6 @@ use Auth;
 use Illuminate\Http\Request;
 use Image;
 use Log;
-use Spatie\GoogleCalendar\Event as GCEvent;
 use Validator;
 
 class EventController extends MyBaseController
@@ -17,14 +16,14 @@ class EventController extends MyBaseController
     /**
      * Show the 'Create Event' Modal.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\View\View
      */
     public function showCreateEvent(Request $request)
     {
         $data = [
-            'modal_id'     => $request->get('modal_id'),
-            'organisers'   => Organiser::scope()->pluck('name', 'id'),
+            'modal_id' => $request->get('modal_id'),
+            'organisers' => Organiser::scope()->pluck('name', 'id'),
             'organiser_id' => $request->get('organiser_id') ? $request->get('organiser_id') : false,
         ];
 
@@ -34,7 +33,7 @@ class EventController extends MyBaseController
     /**
      * Create an event.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function postCreateEvent(Request $request)
@@ -43,7 +42,7 @@ class EventController extends MyBaseController
 
         if (! $event->validate($request->all())) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $event->errors(),
             ]);
         }
@@ -96,7 +95,7 @@ class EventController extends MyBaseController
             $organiser = Organiser::createNew(false, false, true);
 
             $rules = [
-                'organiser_name'  => ['required'],
+                'organiser_name' => ['required'],
                 'organiser_email' => ['required', 'email'],
             ];
             $messages = [
@@ -107,7 +106,7 @@ class EventController extends MyBaseController
 
             if ($validator->fails()) {
                 return response()->json([
-                    'status'   => 'error',
+                    'status' => 'error',
                     'messages' => $validator->messages()->toArray(),
                 ]);
             }
@@ -123,7 +122,7 @@ class EventController extends MyBaseController
             $event->organiser_id = $request->get('organiser_id');
         } else { /* Somethings gone horribly wrong */
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => trans('Controllers.organiser_other_error'),
             ]);
         }
@@ -159,7 +158,7 @@ class EventController extends MyBaseController
             Log::error($e);
 
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => trans('Controllers.event_create_exception'),
             ]);
         }
@@ -191,10 +190,10 @@ class EventController extends MyBaseController
         }
 
         return response()->json([
-            'status'      => 'success',
-            'id'          => $event->id,
+            'status' => 'success',
+            'id' => $event->id,
             'redirectUrl' => route('showEventTickets', [
-                'event_id'  => $event->id,
+                'event_id' => $event->id,
                 'first_run' => 'yup',
             ]),
         ]);
@@ -203,7 +202,7 @@ class EventController extends MyBaseController
     /**
      * Edit an event.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @param $event_id
      * @return \Illuminate\Http\JsonResponse
      */
@@ -213,7 +212,7 @@ class EventController extends MyBaseController
 
         if (! $event->validate($request->all())) {
             return response()->json([
-                'status'   => 'error',
+                'status' => 'error',
                 'messages' => $event->errors(),
             ]);
         }
@@ -301,9 +300,9 @@ class EventController extends MyBaseController
         }
 
         return response()->json([
-            'status'      => 'success',
-            'id'          => $event->id,
-            'message'     => trans('Controllers.event_successfully_updated'),
+            'status' => 'success',
+            'id' => $event->id,
+            'message' => trans('Controllers.event_successfully_updated'),
             'redirectUrl' => '',
         ]);
     }
@@ -311,7 +310,7 @@ class EventController extends MyBaseController
     /**
      * Upload event image.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function postUploadEventImage(Request $request)
@@ -345,7 +344,8 @@ class EventController extends MyBaseController
 
     /**
      * Puplish event and redirect.
-     * @param  int|false $event_id
+     *
+     * @param  int|false  $event_id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function makeEventLive($event_id = false)

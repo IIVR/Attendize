@@ -1,10 +1,5 @@
 <?php
 
-use App\Models\Event;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
 class EventTest extends TestCase
 {
     public function test_event_is_created_successfully()
@@ -59,9 +54,9 @@ class EventTest extends TestCase
     {
         $organiser = factory(App\Models\Organiser::class)->create(['account_id' => 1]);
         $event = factory(App\Models\Event::class)->create([
-            'account_id'   => $organiser->account_id,
+            'account_id' => $organiser->account_id,
             'organiser_id' => $organiser->id,
-            'user_id'      => $this->test_user->id,
+            'user_id' => $this->test_user->id,
         ]);
 
         $this->actingAs($this->test_user)

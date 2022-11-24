@@ -12,8 +12,8 @@ class EventAccessCodes extends MyBaseModel
     use SoftDeletes;
 
     /**
-     * @param int $event_id
-     * @param string $accessCode
+     * @param  int  $event_id
+     * @param  string  $accessCode
      * @return void
      */
     public static function logUsage($event_id, $accessCode)
