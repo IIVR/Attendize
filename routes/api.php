@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\API\AttendeesApiController;
+use App\Http\Controllers\API\EventsApiController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,14 +33,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * Events
  * ---------------
  */
-Route::resource('events', API\EventsApiController::class);
+Route::resource('events', EventsApiController::class);
 
 /*
  * ---------------
  * Attendees
  * ---------------
  */
-Route::resource('attendees', API\AttendeesApiController::class);
+Route::resource('attendees', AttendeesApiController::class);
 
 /*
  * ---------------
