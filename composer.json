@@ -45,7 +45,6 @@
         "laravel/sail": "^1.16",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.3",
-        "phpspec/phpspec": "^6.3",
         "phpunit/phpunit": "^9.5.10",
         "symfony/css-selector": "^6.0",
         "symfony/dom-crawler": "^6.0",
