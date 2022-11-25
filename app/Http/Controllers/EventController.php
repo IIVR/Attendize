@@ -356,7 +356,8 @@ class EventController extends MyBaseController
         \Session::flash('message', trans('Event.go_live'));
 
         return redirect()->action(
-            'EventDashboardController@showDashboard', ['event_id' => $event_id]
+            // 'EventDashboardController@showDashboard', ['event_id' => $event_id]
+            [EventDashboardController::class,'showDashboard'], ['event_id' => $event_id]
         );
     }
 }
