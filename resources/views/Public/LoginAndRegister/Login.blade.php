@@ -9,7 +9,7 @@
             <div class="panel">
                 <div class="panel-body">
                     <div class="logo">
-                        {!!Html::image('assets/images/logo-dark.png')!!}
+                        {!!Html::image('assets/images/logo-dark.svg')!!}
                     </div>
 
                     @if(Session::has('failed'))
